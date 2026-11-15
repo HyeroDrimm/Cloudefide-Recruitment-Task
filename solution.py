@@ -8,8 +8,6 @@ def add_virtual_column(df: pandas.DataFrame, role: str, new_column: str) -> pand
 
     new_df = df.copy(deep=True)
 
-    # I used eval as a simple solution, even though it is not safe with code injection because project specs did not
-    # mention what it will be used for. There are other ways to parse equation that are safe but require more implementation time
     try:
         column = new_df.eval(role)
     except pandas.errors.UndefinedVariableError as e:
