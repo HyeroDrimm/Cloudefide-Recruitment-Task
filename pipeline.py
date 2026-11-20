@@ -26,4 +26,4 @@ df["Order_Date"] = pd.to_datetime(df["Order_Date"], format="%Y-%m-%d", errors="c
 df = add_virtual_column(df, "(Quantity * Unit_Price - Discount).round(2)", "revenue")
 
 revenue_by_region_df = df.groupby("Region")["revenue"].sum()
-revenue_by_region_df.to_csv(" revenue_by_region.csv", index=True)
+revenue_by_region_df.to_csv("revenue_by_region.csv", index=True)
